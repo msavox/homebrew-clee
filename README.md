@@ -5,9 +5,21 @@ a file-tree sidebar, embedded terminals, syntax highlighting and a run button.
 
 ## Install
 
+Add the tap once, then install by name:
+
+```bash
+brew tap msavox/clee
+brew install clee
+```
+
+Or in a single command, without adding the tap first:
+
 ```bash
 brew install msavox/clee/clee
 ```
+
+The three parts are *user* / *tap* / *formula*; `clee` repeats only because the tap and the
+command share a name. Afterwards `brew upgrade clee` and `brew uninstall clee` work as usual.
 
 Then, for the file-tree icons (they need a Nerd Font):
 
