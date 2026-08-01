@@ -34,6 +34,12 @@ jobs:
           brew tap
           diff Formula/clee.rb "$(brew --repository msavox/clee)/Formula/clee.rb"
 
+      # Homebrew 6 refuses to load a formula from a third-party tap until it is trusted, and
+      # tapping does not imply trusting. Tolerated rather than required, because older
+      # Homebrew versions have no `brew trust` subcommand at all.
+      - name: Trust this tap
+        run: brew trust msavox/clee || echo "brew trust unavailable on this version; continuing"
+
       - name: Install
         run: brew install --build-from-source --verbose msavox/clee/clee
 

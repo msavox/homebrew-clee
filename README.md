@@ -5,21 +5,24 @@ a file-tree sidebar, embedded terminals, syntax highlighting and a run button.
 
 ## Install
 
-Add the tap once, then install by name:
-
 ```bash
 brew tap msavox/clee
+brew trust msavox/clee
 brew install clee
 ```
 
-Or in a single command, without adding the tap first:
+All three steps are needed. A formula is Ruby code Homebrew runs on your machine, so recent
+versions refuse to load one from a third-party tap until you trust its source — and tapping
+does not imply trusting. Skipping it gives:
 
-```bash
-brew install msavox/clee/clee
+```
+Error: Refusing to load formula msavox/clee/clee from untrusted tap msavox/clee.
 ```
 
-The three parts are *user* / *tap* / *formula*; `clee` repeats only because the tap and the
-command share a name. Afterwards `brew upgrade clee` and `brew uninstall clee` work as usual.
+The fully qualified `brew install msavox/clee/clee` avoids the `tap` step but still needs the
+`trust` one. Those three parts are *user* / *tap* / *formula*; `clee` repeats only because the
+tap and the command share a name. Afterwards `brew upgrade clee` and `brew uninstall clee`
+work as usual.
 
 Then, for the file-tree icons (they need a Nerd Font):
 
