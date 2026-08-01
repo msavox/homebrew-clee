@@ -1,0 +1,55 @@
+name: Test formula
+
+# Verifies that the formula actually installs, on both platforms Homebrew serves. The Linux
+# job is the one that matters most: the main repo is developed on macOS, so this is where the
+# Homebrew-on-Linux build path gets exercised at all.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  # Weekly, to catch a dependency or Homebrew change breaking the build even when nothing here
+  # has changed.
+  schedule:
+    - cron: "0 6 * * 1"
+
+jobs:
+  install:
+    name: brew install (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-14, ubuntu-22.04]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      # Tap from this checkout, so a pull request tests its own version of the formula
+      # rather than whatever is already on the default branch.
+      - name: Tap this checkout
+        run: brew tap-new msavox/clee --no-git || true
+
+      - name: Install the formula under test
+        run: |
+          set -euo pipefail
+          tap_dir="$(brew --repository msavox/clee)"
+          mkdir -p "${tap_dir}/Formula"
+          cp Formula/clee.rb "${tap_dir}/Formula/clee.rb"
+          brew install --build-from-source --verbose msavox/clee/clee
+
+      - name: brew test
+        run: brew test msavox/clee/clee
+
+      - name: brew audit
+        run: brew audit --strict msavox/clee/clee
+
+      # The formula's own test block covers --version/--help; this checks the install laid
+      # out what the caveats promise.
+      - name: Check the installed layout
+        run: |
+          set -euo pipefail
+          command -v clee
+          clee --version
+          ls "$(brew --prefix clee)/share/clee/fonts"
