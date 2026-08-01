@@ -26,18 +26,16 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      # Tap from this checkout, so a pull request tests its own version of the formula
-      # rather than whatever is already on the default branch.
-      - name: Tap this checkout
-        run: brew tap-new msavox/clee --no-git || true
-
-      - name: Install the formula under test
+      # setup-homebrew links this checkout in as the tap, so `msavox/clee/clee` already
+      # resolves to the formula in this commit — a pull request tests its own version.
+      - name: Confirm the formula under test is this checkout
         run: |
           set -euo pipefail
-          tap_dir="$(brew --repository msavox/clee)"
-          mkdir -p "${tap_dir}/Formula"
-          cp Formula/clee.rb "${tap_dir}/Formula/clee.rb"
-          brew install --build-from-source --verbose msavox/clee/clee
+          brew tap
+          diff Formula/clee.rb "$(brew --repository msavox/clee)/Formula/clee.rb"
+
+      - name: Install
+        run: brew install --build-from-source --verbose msavox/clee/clee
 
       - name: brew test
         run: brew test msavox/clee/clee
