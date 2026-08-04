@@ -3,8 +3,8 @@ class Clee < Formula
   homepage "https://github.com/msavox/cleecode"
   # Both values are printed in the release workflow's run summary ("Homebrew source
   # checksum"), so bumping a version is a copy/paste.
-  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "8b4dcb43ecdb1cce9575afa5e2d36231bfc0d9adf87b47e48d22ed2edec45106"
+  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "0210817b28844a385854a1d1a221b1fad3602c5e1d433787a01f58072c160aa8"
   license "MIT"
   head "https://github.com/msavox/cleecode.git", branch: "master"
 
@@ -40,3 +40,4 @@ class Clee < Formula
     assert_match "USAGE", shell_output("#{bin}/clee --help")
   end
 end
+
