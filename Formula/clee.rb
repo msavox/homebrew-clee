@@ -3,8 +3,8 @@ class Clee < Formula
   homepage "https://github.com/msavox/cleecode"
   # Both values are printed in the release workflow's run summary ("Homebrew source
   # checksum"), so bumping a version is a copy/paste.
-  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "901331864344740eb3710e33f2549d34c35a3d8598d5bd8f7b463914e49eb43a"
+  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.3.2.tar.gz"
+  sha256 "5077f5308948bc245180e55cc96b4b50e67cfcfd62851f732cf54cf92e788470"
   license "MIT"
   head "https://github.com/msavox/cleecode.git", branch: "master"
 
@@ -23,6 +23,7 @@ class Clee < Formula
     # Keep the bundled Nerd Font with the install, so it stays available even if the
     # source tree is gone.
     pkgshare.install "assets/fonts"
+    man1.install "docs/clee.1"
   end
 
   def caveats
