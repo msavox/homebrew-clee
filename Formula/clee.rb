@@ -3,8 +3,8 @@ class Clee < Formula
   homepage "https://github.com/msavox/cleecode"
   # Both values are printed in the release workflow's run summary ("Homebrew source
   # checksum"), so bumping a version is a copy/paste.
-  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "5077f5308948bc245180e55cc96b4b50e67cfcfd62851f732cf54cf92e788470"
+  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "979b46fdb262044dae28105f46da940de6f26c22d96b61cda4e94864a0288ddc"
   license "MIT"
   head "https://github.com/msavox/cleecode.git", branch: "master"
 
@@ -33,6 +33,12 @@ class Clee < Formula
 
       A copy also lives at:
         #{opt_pkgshare}/fonts
+
+      Previews are optional extras, not requirements — without them CleeCode
+      simply shows less, rather than failing:
+        brew install poppler     PDF pages (ghostscript also works)
+        brew install pandoc typst  Markdown as a real document, pictures and all
+        brew install chafa       pictures inside a terminal pane
     EOS
   end
 
