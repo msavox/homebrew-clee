@@ -3,6 +3,11 @@ class Clee < Formula
   homepage "https://github.com/msavox/cleecode"
   # Both values are printed in the release workflow's run summary ("Homebrew source
   # checksum"), so bumping a version is a copy/paste.
+  #
+  # Whatever you take the checksum from, check it is an archive first. A `curl | shasum` while
+  # GitHub was returning 429 once put the hash of a 199-byte error page in here, and a formula
+  # with the wrong checksum does not fail loudly — it downloads, mismatches, and looks like a
+  # hung install.
   url "https://github.com/msavox/cleecode/archive/refs/tags/v0.4.2.tar.gz"
   sha256 "5e0650f66aee063d78e8e494a2b7c52bf2d3cf813a881bca40bb8907e4edbd6e"
   license "MIT"
