@@ -8,8 +8,8 @@ class Clee < Formula
   # GitHub was returning 429 once put the hash of a 199-byte error page in here, and a formula
   # with the wrong checksum does not fail loudly — it downloads, mismatches, and looks like a
   # hung install.
-  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "328ed545f516ec8f7bef0dddbbfeca43b473839ab3ada3941d06d293724ca633"
+  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "7c697fa5d9fc41275cfbc9e25ac06d4849bec3c2df27bb867183136d1a8c764a"
   license "MIT"
   head "https://github.com/msavox/cleecode.git", branch: "master"
 
@@ -38,6 +38,11 @@ class Clee < Formula
 
       A copy also lives at:
         #{opt_pkgshare}/fonts
+
+      On macOS, to give CleeCode an icon in the Dock and let Finder open
+      files with it (needs Ghostty, and builds the bundle locally so it
+      arrives without Gatekeeper's quarantine):
+        clee --install-app
 
       Previews are optional extras, not requirements — without them CleeCode
       simply shows less, rather than failing:
