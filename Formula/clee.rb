@@ -8,8 +8,8 @@ class Clee < Formula
   # GitHub was returning 429 once put the hash of a 199-byte error page in here, and a formula
   # with the wrong checksum does not fail loudly — it downloads, mismatches, and looks like a
   # hung install.
-  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.6.2.tar.gz"
-  sha256 "4836957da5647851c380cb0161614c05f12dc52dd9e22c546a73ac7a72d5f6f9"
+  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "41e1c26537baae2ed95fbaba08d7a616602535eed828de0704df65730d7f5a20"
   license "MIT"
   head "https://github.com/msavox/cleecode.git", branch: "master"
 
@@ -49,6 +49,13 @@ class Clee < Formula
         brew install poppler     PDF pages (ghostscript also works)
         brew install pandoc typst  Markdown as a real document, pictures and all
         brew install chafa       pictures inside a terminal pane
+
+      The numeric workspaces (clee -w octave, clee -w pylab) drive the
+      interpreter you already have, and nothing is installed into it.
+      Nothing here is bundled either:
+        brew install octave      an Octave session to run cells in
+        pip install matplotlib   plots from a Python session — it has to be
+                                 the same python your terminal runs
     EOS
   end
 
