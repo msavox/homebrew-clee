@@ -8,8 +8,8 @@ class Clee < Formula
   # GitHub was returning 429 once put the hash of a 199-byte error page in here, and a formula
   # with the wrong checksum does not fail loudly — it downloads, mismatches, and looks like a
   # hung install.
-  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "41e1c26537baae2ed95fbaba08d7a616602535eed828de0704df65730d7f5a20"
+  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "2e307e01589c7ef2ae10c1fc464b1983627f65381d644f792e64d32d8d1f67a8"
   license "MIT"
   head "https://github.com/msavox/cleecode.git", branch: "master"
 
@@ -54,6 +54,8 @@ class Clee < Formula
       interpreter you already have, and nothing is installed into it.
       Nothing here is bundled either:
         brew install octave      an Octave session to run cells in
+        brew install gnuplot     plots from an Octave session with no display
+                                 (a remote server over ssh) — it needs no X
         pip install matplotlib   plots from a Python session — it has to be
                                  the same python your terminal runs
     EOS
