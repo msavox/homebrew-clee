@@ -8,8 +8,8 @@ class Clee < Formula
   # GitHub was returning 429 once put the hash of a 199-byte error page in here, and a formula
   # with the wrong checksum does not fail loudly — it downloads, mismatches, and looks like a
   # hung install.
-  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "68e1954c3d39bcd90606ccb3edee9920c50593a8c613e7963fe00af10175e11f"
+  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.23.0.tar.gz"
+  sha256 "c932caaeaf94d77e78a10cc66be61c3c67363adb5ffd48d4df39c99a17bd4886"
   license "MIT"
   head "https://github.com/msavox/cleecode.git", branch: "master"
 
