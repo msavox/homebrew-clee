@@ -1,6 +1,6 @@
 class Clee < Formula
   desc "Terminal IDE with file-tree sidebar, embedded terminals and syntax highlighting"
-  homepage "https://github.com/msavox/cleecode"
+  homepage "https://cleecode.marunja.com"
   # Both values are printed in the release workflow's run summary ("Homebrew source
   # checksum"), so bumping a version is a copy/paste.
   #
@@ -8,8 +8,8 @@ class Clee < Formula
   # GitHub was returning 429 once put the hash of a 199-byte error page in here, and a formula
   # with the wrong checksum does not fail loudly — it downloads, mismatches, and looks like a
   # hung install.
-  url "https://github.com/msavox/cleecode/archive/refs/tags/v0.24.2.tar.gz"
-  sha256 "ac2aa5f537cb6c81fd4d16fd3b8ad21bac8dacb909ad625847e423b4e3480b89"
+  url "https://github.com/msavox/cleecode/releases/download/v0.24.2/clee-v0.24.2-src.tar.gz"
+  sha256 "70b5f6fa4f7045c6a71ea1f42f90a8d0e6b73214647bd0d904ebc2f08dc686a4"
   license "MIT"
   head "https://github.com/msavox/cleecode.git", branch: "master"
 
