@@ -23,8 +23,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # `@main`, not `@master`: Homebrew renamed the default branch, and an action reference to
+      # a branch that no longer exists does not degrade — the job cannot even start, so every
+      # run since has failed at "Set up job" without reaching the formula it was meant to test.
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
 
       # setup-homebrew links this checkout in as the tap, so `msavox/clee/clee` already
       # resolves to the formula in this commit — a pull request tests its own version.
