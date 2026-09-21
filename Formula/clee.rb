@@ -25,23 +25,23 @@ class Clee < Formula
   # mismatches, and looks like a hung install.
   on_macos do
     on_arm do
-      url "https://github.com/msavox/cleecode/releases/download/v0.29.0/clee-v0.29.0-macos-arm64.tar.gz"
-      sha256 "900c7b8320f666031a2cb58184b05f581404315383509694a79e68beb59e4d0c"
+      url "https://github.com/msavox/cleecode/releases/download/v0.29.1/clee-v0.29.1-macos-arm64.tar.gz"
+      sha256 "2cee1352f2cc11609591ad1243fc10fd8c6991cccfc94919c4c228df3f72cc46"
     end
     on_intel do
-      url "https://github.com/msavox/cleecode/releases/download/v0.29.0/clee-v0.29.0-macos-x86_64.tar.gz"
-      sha256 "926f76561865f92cee521ee93592303fa50fdb51d56110ab0b0079f1fada0d60"
+      url "https://github.com/msavox/cleecode/releases/download/v0.29.1/clee-v0.29.1-macos-x86_64.tar.gz"
+      sha256 "e7feb603c4eae23073bb718f176d56b34727fb4d09d583406ba5fd2b0c0eea0b"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/msavox/cleecode/releases/download/v0.29.0/clee-v0.29.0-linux-arm64.tar.gz"
-      sha256 "3a169c55d736c8d50aa83174015b3cfc1515bceaa8c9c5d36c7f995abb7a66eb"
+      url "https://github.com/msavox/cleecode/releases/download/v0.29.1/clee-v0.29.1-linux-arm64.tar.gz"
+      sha256 "61af9540b065e4a086f1f2fbcbcf19460befdda52661e51a733559e07c8da2f4"
     end
     on_intel do
-      url "https://github.com/msavox/cleecode/releases/download/v0.29.0/clee-v0.29.0-linux-x86_64.tar.gz"
-      sha256 "e92ed076d61a8ee6afc43cc950e3360a5c636e84241042847635d22916de25b8"
+      url "https://github.com/msavox/cleecode/releases/download/v0.29.1/clee-v0.29.1-linux-x86_64.tar.gz"
+      sha256 "31629bc65d256da77f72a0e526bb6afc74af3b46884be62118b98c3eac72b812"
     end
     # The clipboard integration (arboard) links libxcb, and a prebuilt binary needs it at run
     # time rather than only at build time. On macOS the system frameworks cover it.
